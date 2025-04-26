@@ -49,4 +49,10 @@ export class TaskService {
 
     return task;
   }
+
+  delete(id: number) {
+    const task = this.findById(id);
+    this.tasks = this.tasks.filter((t) => t.id !== task.id);
+    return `task with id ${id} deleted`;
+  }
 }
