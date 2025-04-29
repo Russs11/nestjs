@@ -50,6 +50,13 @@ export class TaskService {
     return task;
   }
 
+  patchTask(id: number, dto: Partial<UpdateTaskDto>) {
+    const task = this.findById(id);
+
+    Object.assign(task, dto);
+    return task;
+  }
+
   delete(id: number) {
     const task = this.findById(id);
     this.tasks = this.tasks.filter((t) => t.id !== task.id);
