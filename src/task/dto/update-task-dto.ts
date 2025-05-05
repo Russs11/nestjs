@@ -1,4 +1,10 @@
-import { IsBoolean, IsNotEmpty, IsString, Length } from 'class-validator';
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  Length,
+} from 'class-validator';
 
 export class UpdateTaskDto {
   @IsString({ message: 'Название задачи должно быть строкой' })
@@ -8,4 +14,7 @@ export class UpdateTaskDto {
 
   @IsBoolean({ message: 'Статус должен быть булевым выражением' })
   isComplited: boolean;
+
+  @IsOptional()
+  description: string;
 }

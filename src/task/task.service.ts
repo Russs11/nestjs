@@ -9,11 +9,13 @@ export class TaskService {
       id: 1,
       title: 'learnNestJs',
       isComplited: false,
+      desription: '',
     },
     {
       id: 2,
       title: 'BuildApi',
       isComplited: true,
+      description: '',
     },
   ];
 
@@ -42,11 +44,12 @@ export class TaskService {
   }
 
   update(id: number, dto: UpdateTaskDto) {
-    const { title, isComplited } = dto;
+    const { title, isComplited, description } = dto;
     const task = this.findById(id);
 
     task.title = title;
     task.isComplited = isComplited;
+    task.description = description;
 
     return task;
   }
